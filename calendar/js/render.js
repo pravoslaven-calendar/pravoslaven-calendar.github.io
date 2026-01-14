@@ -125,7 +125,7 @@ function renderMonthCalendarData(year, monthEngName, calendar, isBtnTarget) {
   if (hasIdCurrentDay) {
     currentDayBtn.style.display = 'inline-block';
     currentDayBtn.addEventListener('click', () => {
-      setTimeout(smoothRedirectToCurrDay, 700);
+      setTimeout(smoothRedirectToCurrDay, 350);
     });
 
   } else {
