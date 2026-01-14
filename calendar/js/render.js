@@ -120,13 +120,25 @@ function renderMonthCalendarData(year, monthEngName, calendar, isBtnTarget) {
     checkmarkAlertGreen();
   }
 
-  setTimeout(smoothRedirectToCurrDay, 700);
+  const hasIdCurrentDay = document.querySelector('#current-day');
+
+  if (hasIdCurrentDay) {
+    currentDayBtn.style.display = 'inline-block';
+    currentDayBtn.addEventListener('click', () => {
+      setTimeout(smoothRedirectToCurrDay, 700);
+    });
+
+  } else {
+    currentDayBtn.style.display = 'none';
+    window.location.hash = '#';
+  }
+
 }
 
 // Imports
 import { weekDayNamesObj } from './constants.js';
 import { currYear, currDate, currMonthEngName } from './date.js';
-import { mainElem, fullYearCheckbox, menuYears, menuMonths } from './refs.js';
+import { mainElem, fullYearCheckbox, menuYears, menuMonths, currentDayBtn } from './refs.js';
 import { createDateCard, elementCreate } from './dom.js';
 import { getCalendarRequest } from './requests.js';
 import {

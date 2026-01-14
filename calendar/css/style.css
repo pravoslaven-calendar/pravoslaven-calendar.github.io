@@ -75,6 +75,7 @@ button {
 button > * {
   pointer-events: none;
 }
+
 /* General CSS [End] */
 
 .btn {
@@ -90,19 +91,31 @@ button > * {
   cursor: pointer;
 }
 
-#select-calendar-btn {
-  border: 2px solid rgb(80, 140, 80);
+.btn.page-top {
   border-radius: 8px;
   padding: 8px 18px;
-  background-color: rgb(80, 140, 80);
   color: white;
   font-weight: bold;
   cursor: pointer;
 }
 
-#select-calendar-btn:hover {
+.btn.page-top:hover {
   text-decoration: underline;
   text-decoration-thickness: 1px;
+}
+
+#select-calendar-btn {
+  border: 2px solid rgb(80, 140, 80);
+  background-color: rgb(80, 140, 80);
+}
+
+#current-day-btn {
+  display: none;
+  font-size: 90%;
+  /* font-style: italic; */
+  /* border: 2px solid rgb(42, 42, 251); */
+  border: 2px solid rgb(125, 117, 238);
+  background-color: rgb(125, 117, 238);
 }
 
 .card {
@@ -122,6 +135,7 @@ button > * {
 }
 
 #current-day {
+  /* border: 4px double rgb(125, 117, 238); */
   border: 4px double rgb(125, 117, 238);
   border-radius: 5px;
   padding: 5px;

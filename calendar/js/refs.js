@@ -6,5 +6,6 @@ export const menuYears = document.querySelector('#year-selection');
 export const menuMonths = document.querySelector('#month-selection');
 export const fullYearCheckbox = document.querySelector('#full-year-checkbox');
 export const selectCalendarBtn = document.querySelector('#select-calendar-btn');
+export const currentDayBtn = document.querySelector('#current-day-btn');
 export const btnToTop = document.querySelector('#btn-to-top');
 
