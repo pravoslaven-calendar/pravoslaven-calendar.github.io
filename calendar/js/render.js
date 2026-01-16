@@ -57,7 +57,7 @@ function renderFullYearCalendarData(year, calendar, isBtnTarget) {
       const description = dayObj.memoryOf;
       const state = dayObj.color;
 
-      const card = createDateCard(fullDate, description, state, isCurrDay());
+      const card = createDateCard(fullDate, description, state, isCurrDay(year, monthEngName, date));
       monthFragment.appendChild(card);
     });
 
@@ -74,6 +74,8 @@ function renderFullYearCalendarData(year, calendar, isBtnTarget) {
   if (isBtnTarget) {
     checkmarkAlertGreen();
   }
+
+  toggleCurrentDayBtn();
 
   // setTimeout(smoothRedirectToCurrDay, 700);
 }
@@ -95,7 +97,7 @@ function renderMonthCalendarData(year, monthEngName, calendar, isBtnTarget) {
     const description = dayObj.memoryOf;
     const state = dayObj.color;
 
-    const card = createDateCard(fullDate, description, state, isCurrDay());
+    const card = createDateCard(fullDate, description, state, isCurrDay(year, monthEngName, date));
     fragment.appendChild(card);
   });
 
@@ -105,7 +107,13 @@ function renderMonthCalendarData(year, monthEngName, calendar, isBtnTarget) {
     checkmarkAlertGreen();
   }
 
+  toggleCurrentDayBtn();
+}
+
+function toggleCurrentDayBtn() {
   const hasIdCurrentDay = document.querySelector('#current-day');
+  console.log(hasIdCurrentDay);
+
 
   if (hasIdCurrentDay) {
     currentDayBtn.style.display = 'inline-block';
@@ -117,7 +125,6 @@ function renderMonthCalendarData(year, monthEngName, calendar, isBtnTarget) {
     currentDayBtn.style.display = 'none';
     window.location.hash = '#';
   }
-
 }
 
 // Validation
