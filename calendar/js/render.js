@@ -2,9 +2,9 @@ export async function loadCalendar(ev, year, monthEngName) {
   let isBtnTarget = null;
 
   if (ev) {
+    isBtnTarget = true;
     year = Number(ev.target.parentElement[0].value);
     monthEngName = ev.target.parentElement[1].value;
-    isBtnTarget = true;
   }
 
   updateYearAndMonthHeadings(year, monthEngName);
@@ -25,6 +25,7 @@ export async function loadCalendar(ev, year, monthEngName) {
 
   if (fullYearCheckbox.checked) {
     renderFullYearCalendarData(year, calendar, isBtnTarget)
+
   } else {
     renderMonthCalendarData(year, monthEngName, calendar, isBtnTarget);
   }
@@ -58,14 +59,6 @@ function renderFullYearCalendarData(year, calendar, isBtnTarget) {
 
       const card = createDateCard(fullDate, description, state, isCurrDay());
       monthFragment.appendChild(card);
-
-      // Validation
-      function isCurrDay() {
-        const isCurrentYear = year === currYear;
-        const isCurrentMonth = monthEngName === currMonthEngName;
-        const isCurrDate = Number(date) === currDate;
-        return isCurrDate && isCurrentMonth && isCurrentYear;
-      }
     });
 
     if (monthEngName !== 'Dec') {
@@ -104,14 +97,6 @@ function renderMonthCalendarData(year, monthEngName, calendar, isBtnTarget) {
 
     const card = createDateCard(fullDate, description, state, isCurrDay());
     fragment.appendChild(card);
-
-    // Validation
-    function isCurrDay() {
-      const isCurrentYear = year === currYear;
-      const isCurrentMonth = monthEngName === currMonthEngName;
-      const isCurrDate = Number(date) === currDate;
-      return isCurrDate && isCurrentMonth && isCurrentYear;
-    }
   });
 
   mainElem.replaceChildren(fragment);
@@ -134,6 +119,15 @@ function renderMonthCalendarData(year, monthEngName, calendar, isBtnTarget) {
   }
 
 }
+
+// Validation
+function isCurrDay(year, monthEngName, date) {
+  const isCurrentYear = year === currYear;
+  const isCurrentMonth = monthEngName === currMonthEngName;
+  const isCurrDate = Number(date) === currDate;
+  return isCurrDate && isCurrentMonth && isCurrentYear;
+}
+
 
 // Imports
 import { weekDayNamesObj } from './constants.js';
