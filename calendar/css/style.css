@@ -58,7 +58,8 @@ option,
   display: inline-block;
 }
 
-div.input-row:nth-child(2) {
+div.input-row:nth-child(2),
+div.input-row:nth-child(3) {
   margin-left: 4px;
 }
 

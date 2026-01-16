@@ -118,7 +118,7 @@ function toggleCurrentDayBtn() {
   if (hasIdCurrentDay) {
     currentDayBtn.style.display = 'inline-block';
     currentDayBtn.addEventListener('click', () => {
-      setTimeout(smoothRedirectToCurrDay, 350);
+      setTimeout(smoothRedirectToCurrDay, 0);
     });
 
   } else {
